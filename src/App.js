@@ -97,7 +97,7 @@ const AppRoutes = () => {
         
           <Issue />
         
-      </AuthenticatedRoute>
+      </AuthenticatedRoute>  
       <AdminRoute path="/users">
         
           <Users />

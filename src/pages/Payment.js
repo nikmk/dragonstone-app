@@ -8,6 +8,8 @@ import React, {
   import Card from '../components/common/Card';
   import defaultAvatar from './../images/power.png';
   import {Button} from '@material-ui/core'
+    
+
 
 
   
@@ -38,10 +40,7 @@ import React, {
   
           <div className="mt-2">
             <PaymentDetailLabel info={paymentdetails} />
-            <br/>
-            <Button variant="contained" color="primary">
-                Pay
-            </Button>
+            
 
           </div>
         </div>
@@ -52,6 +51,7 @@ import React, {
   const Payment = () => {
      const fetchContext = useContext(FetchContext);
     const [paymentdetails, setPaymentDetails] = useState([]);
+  
   
     useEffect(() => {
       const getDetails = async () => {
@@ -66,6 +66,9 @@ import React, {
       };
       getDetails();
     }, [fetchContext]);
+
+    
+
   
     return (
       <>
@@ -75,6 +78,45 @@ import React, {
             {/* users.map(user => ( */}
               <div className="m-2" >
                 <PaymentDetail paymentdetails={paymentdetails} />
+                <br/>
+            <Button variant="contained" color="primary" onClick={async (e)=>{
+                    e.preventDefault();
+                    const amount ={ amount : paymentdetails.CostIncurred}
+                    const data = fetchContext.authAxios.post(
+                        'pay', amount
+                    )
+                    
+                    const options = {
+                    key: "rzp_test_nxoihzbEy2WVGq",
+                    name: "Your App Name",
+                    amount: (paymentdetails.CostIncurred * 100 ),
+                    description: "Some Description", 
+                    order_id: data.id,
+                    handler: async (response) => {
+                        try {
+                        const paymentId = await response.razorpay_payment_id;
+                        const data = {paymentId : paymentId }
+                        const captureResponse = await fetchContext.authAxios.post('capture', data)
+                        console.log(captureResponse.data);
+                        } catch (err) {
+                        console.log(err);
+                        }
+                        // await console.log(response);
+                        
+                        
+                    },
+                    theme: {
+                        color: "#686CFD",
+                    },
+                    };
+                    const rzp1 = new window.Razorpay(options);
+                    rzp1.open();
+                    
+                    
+                    
+            }}>
+                Pay
+            </Button>
               </div>
               
             {/* ))} */}
@@ -83,5 +125,11 @@ import React, {
     );
   };
   
+  
+
+
+
+
+
   export default Payment;
   

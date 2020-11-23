@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import axios from 'axios';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 
 const FetchContext = createContext();

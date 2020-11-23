@@ -11,15 +11,15 @@ const FetchProvider = ({ children }) => {
     baseURL: process.env.REACT_APP_API_URL
   });
 
-  useEffect(()=>{
-    const getCsrfToken= async() =>{
-      const {data} = await authAxios.get('/csrf-token')
+  // useEffect(()=>{
+  //   const getCsrfToken= async() =>{
+  //     const {data} = await authAxios.get('/csrf-token')
       
-      authAxios.defaults.headers['X-CSRF-Token'] = data.csrfToken 
-    }
+  //     authAxios.defaults.headers['X-CSRF-Token'] = data.csrfToken 
+  //   }
 
-    getCsrfToken()
-  },[authAxios])
+  //   getCsrfToken()
+  // },[authAxios])
 
   return (
     <Provider

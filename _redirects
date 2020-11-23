@@ -1,2 +1,2 @@
 /api/* https://secure-ocean-04711.herokuapp.com/api/:splat 200
-/*  /index.html  200
+/* https://secure-ocean-04711.herokuapp.com/:splat 200

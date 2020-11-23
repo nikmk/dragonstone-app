@@ -14,6 +14,7 @@ import { publicFetch } from '../util/fetch';
 import { Redirect } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 
+
 const LoginSchema = Yup.object().shape({
   email: Yup.string().required('Email is required'),
   password: Yup.string().required('Password is required')
@@ -21,16 +22,17 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
   const authContext = useContext(AuthContext)
+
   const [loginSuccess, setLoginSuccess] = useState();
   const [loginError, setLoginError] = useState();
   const [loginLoading, setLoginLoading] = useState(false);
   const [redirectOnLogin, setRedirectOnLogin] = useState(false)
 
-  const submitCredentials = async credentials => {
+  const submitCredentials = async credentials => { 
     try {
       setLoginLoading(true);
-      const {data} = await publicFetch.post('authenticate', credentials , {withCredentials: true, credentials: 'include'}  )
-      // , {withCredentials: true, credentials: 'include'}
+      const {data} = await publicFetch.post('authenticate',credentials    )
+      // {withCredentials: true, credentials: 'include'}
       authContext.setAuthState(data)
       setLoginSuccess(data.message)
       setLoginError('')

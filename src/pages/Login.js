@@ -29,7 +29,8 @@ const Login = () => {
   const submitCredentials = async credentials => {
     try {
       setLoginLoading(true);
-      const {data} = await publicFetch.post('authenticate', credentials )
+      const {data} = await publicFetch.post('authenticate', credentials , {withCredentials: true, credentials: 'include'}  )
+      // , {withCredentials: true, credentials: 'include'}
       authContext.setAuthState(data)
       setLoginSuccess(data.message)
       setLoginError('')

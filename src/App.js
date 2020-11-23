@@ -64,8 +64,7 @@ const AdminRoute = ({children, ...rest}) =>{
        } />
     )
 }
-
-
+ 
 const AppRoutes = () => {
   
   return (

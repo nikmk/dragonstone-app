@@ -16,6 +16,7 @@ const Home = () => {
             className="w-32 h-full"
             src={logo}
             alt="Logo"
+            style={{height: "5rem", width: "5rem"}}
           />
           <div className="flex items-center">
             <Link

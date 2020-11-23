@@ -54,14 +54,15 @@ const Signup = () => {
   return (
     <>
     {redirectOnLogin && <Redirect to="/dashboard"/>}
-      <section className="w-1/2 h-screen m-auto p-8 sm:pt-10">
+      
+      <section className="w-full sm:w-1/2 h-screen m-auto p-8 sm:pt-10">
         <GradientBar />
         <Card>
           <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full">
               <div>
                 <div className="w-32 m-auto mb-6">
-                  <img src={logo} alt="Logo" />
+                  <img src={logo} alt="Logo" style={{height: "10rem",width: "10rem"}} />
                 </div>
                 <h2 className="mb-2 text-center text-3xl leading-9 font-extrabold text-gray-900">
                   Sign up for an account

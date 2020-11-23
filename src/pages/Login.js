@@ -59,7 +59,7 @@ const Login = () => {
             <div className="max-w-md w-full">
               <div>
                 <div className="w-32 m-auto mb-6">
-                  <img src={logo} alt="Logo" />
+                  <img src={logo} alt="Logo" style={{height: "10rem",width: "10rem"}} />
                 </div>
                 <h2 className="mb-2 text-center text-3xl leading-9 font-extrabold text-gray-900">
                   Log in to your account

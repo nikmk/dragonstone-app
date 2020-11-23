@@ -116,14 +116,14 @@ const Login = () => {
                       </div>
                     </div>
 
-                    <div className="mt-6 flex justify-start">
+                    {/* <div className="mt-6 flex justify-start">
                       <div className="text-sm leading-5">
                         <Hyperlink
                           to="forgot-password"
                           text="Forgot your password?"
                         />
                       </div>
-                    </div>
+                    </div> */}
 
                     <div className="mt-6">
                       <GradientButton
